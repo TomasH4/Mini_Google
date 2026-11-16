@@ -1,0 +1,1 @@
+Document three content. Searching involves tokenization, ranking and phrase matching. Java 21 adds sealed interfaces.

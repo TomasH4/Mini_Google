@@ -1,0 +1,1 @@
+Document five content. Concurrency in Java can be achieved with virtual threads, ForkJoinPool, and CompletableFuture. Indexing large corpora requires careful memory management.

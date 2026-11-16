@@ -1,0 +1,1 @@
+Document two content. Java supports virtual threads and modern concurrency primitives. Search engines rely on indexing.
