@@ -14,23 +14,35 @@ public class InvertedIndex {
     private final Map<Integer, Document> documents = new ConcurrentHashMap<>();
     private double avgDocLength = 0.0;
 
-    /** Adds a document to the index, tokenizing its body. */
+    /** Adds a document to the index, tokenizing its body and grouping positions by term. */
     public void addDocument(Document doc) {
-        // Store document
         documents.put(doc.id(), doc);
-        // Tokenize body (simple whitespace + lowercasing) and record positions
+
+        // Group token positions per term for this specific document
         String[] tokens = doc.body().toLowerCase().split("\\s+");
+        Map<String, List<Integer>> termPositions = new HashMap<>();
+
         for (int pos = 0; pos < tokens.length; pos++) {
-            String term = tokens[pos];
-            // Remove leading/trailing punctuation (non‑letter/number)
-            term = term.replaceAll("^[^\\p{L}\\p{N}]+|[^\\p{L}\\p{N}]+$", "");
+            String term = cleanTerm(tokens[pos]);
             if (term.isEmpty()) continue;
-            index.computeIfAbsent(term, k -> new ArrayList<>())
-                 .add(new Posting(doc.id(), List.of(pos)));
+            termPositions.computeIfAbsent(term, k -> new ArrayList<>()).add(pos);
         }
-        // Update average document length (incremental)
-        int totalDocs = documents.size();
-        avgDocLength = ((avgDocLength * (totalDocs - 1)) + doc.length()) / totalDocs;
+
+        // Add one posting per term for this document (ordered positions)
+        termPositions.forEach((term, positions) -> {
+            index.computeIfAbsent(term, k -> Collections.synchronizedList(new ArrayList<>()))
+                 .add(new Posting(doc.id(), List.copyOf(positions)));
+        });
+
+        // Update average document length (thread-safe update)
+        synchronized (this) {
+            int totalDocs = documents.size();
+            avgDocLength = ((avgDocLength * (totalDocs - 1)) + doc.length()) / totalDocs;
+        }
+    }
+
+    private static String cleanTerm(String raw) {
+        return raw.replaceAll("^[^\\p{L}\\p{N}]+|[^\\p{L}\\p{N}]+$", "");
     }
 
     /** Returns the list of postings for a term, or empty list if term not present. */
@@ -48,5 +60,13 @@ public class InvertedIndex {
 
     public double getAvgDocLength() {
         return avgDocLength;
+    }
+
+    public int getDocumentCount() {
+        return documents.size();
+    }
+
+    public int getVocabularySize() {
+        return index.size();
     }
 }

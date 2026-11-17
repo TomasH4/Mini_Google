@@ -5,11 +5,14 @@ import java.util.stream.Collectors;
 
 /**
  * Recursive‑descent parser that converts a token list into a QueryNode AST.
- * Grammar (precedence from highest to lowest):
+ * Supports explicit boolean operators (AND, OR, NOT) as well as implicit AND
+ * when multiple terms appear without an operator (e.g. "scala java" -> scala AND java).
+ *
+ * Grammar:
  *   phrase   ::= "\"" WORD+ "\""
  *   term     ::= WORD | phrase
  *   factor   ::= term | NOT factor | '(' expr ')'
- *   andExpr  ::= factor (AND factor)*
+ *   andExpr  ::= factor ((AND | factor) factor)*
  *   orExpr   ::= andExpr (OR andExpr)*
  *   expr     ::= orExpr
  */
@@ -22,6 +25,9 @@ public class QueryParser {
     }
 
     public QueryNode parse() {
+        if (tokens.isEmpty()) {
+            return new TermNode("");
+        }
         QueryNode node = parseOr();
         if (pos != tokens.size()) {
             throw new IllegalArgumentException("Unexpected token: " + peek());
@@ -40,14 +46,19 @@ public class QueryParser {
 
     private QueryNode parseAnd() {
         QueryNode left = parseFactor();
-        while (match(Tokenizer.Type.AND)) {
+        while (match(Tokenizer.Type.AND) || canStartFactor()) {
             QueryNode right = parseFactor();
             left = new AndNode(left, right);
         }
         return left;
     }
 
-    // Updated factor parsing to handle PHRASE tokens and normalize words to lower case
+    private boolean canStartFactor() {
+        if (pos >= tokens.size()) return false;
+        Tokenizer.Type t = tokens.get(pos).type();
+        return t == Tokenizer.Type.TERM || t == Tokenizer.Type.PHRASE || t == Tokenizer.Type.NOT || t == Tokenizer.Type.LPAREN;
+    }
+
     private QueryNode parseFactor() {
         if (match(Tokenizer.Type.NOT)) {
             return new NotNode(parseFactor());
@@ -59,10 +70,8 @@ public class QueryParser {
             }
             return inner;
         }
-        // Phrase token introduced by the tokenizer
         if (match(Tokenizer.Type.PHRASE)) {
             Tokenizer.Token token = tokens.get(pos - 1);
-            // Split on whitespace, strip trailing punctuation, and lower‑case each word
             List<String> words = Arrays.stream(token.text().split("\\s+"))
                 .map(w -> w.replaceAll("[^\\p{L}\\p{N}]+$", ""))
                 .filter(w -> !w.isEmpty())
@@ -70,10 +79,8 @@ public class QueryParser {
                 .collect(Collectors.toList());
             return new PhraseNode(words);
         }
-        // Term token
         Tokenizer.Token token = expect(Tokenizer.Type.TERM);
         String text = token.text();
-        // Legacy support: quoted text that ended up as TERM
         if (text.startsWith("\"") && text.endsWith("\"") && text.length() > 2) {
             String inner = text.substring(1, text.length() - 1);
             List<String> words = Arrays.stream(inner.split("\\s+"))
@@ -83,10 +90,9 @@ public class QueryParser {
                 .collect(Collectors.toList());
             return new PhraseNode(words);
         }
-        return new TermNode(text);
+        return new TermNode(text.toLowerCase());
     }
 
-    // Utility helpers
     private boolean match(Tokenizer.Type type) {
         if (pos < tokens.size() && tokens.get(pos).type() == type) {
             pos++;

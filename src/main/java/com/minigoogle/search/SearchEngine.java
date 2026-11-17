@@ -79,9 +79,9 @@ public class SearchEngine {
             for (String w : words) {
                 List<Integer> pos = index.getPostings(w).stream()
                                           .filter(p -> p.docId() == docId)
-                                          .flatMap(p -> p.positions().stream())
-                                          .sorted()
-                                          .collect(Collectors.toList());
+                                          .findFirst()
+                                          .map(Posting::positions)
+                                          .orElse(Collections.emptyList());
                 positionsLists.add(pos);
             }
             // check if there exists a position p in first list such that p+1 in second, p+2 in third, ...
@@ -138,8 +138,9 @@ public class SearchEngine {
     private int termFrequency(String term, int docId) {
         return index.getPostings(term).stream()
                     .filter(p -> p.docId() == docId)
-                    .flatMap(p -> p.positions().stream())
-                    .mapToInt(i -> 1).sum();
+                    .findFirst()
+                    .map(p -> p.positions().size())
+                    .orElse(0);
     }
 
     /** Collect all term strings from the AST (terms inside phrases are also counted) */

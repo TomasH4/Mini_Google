@@ -1,0 +1,1000 @@
+"recolector de basura"
+(bm25 OR ranking) AND "tiempo real"
+latencia
+rendimiento
+"arbol de sintaxis abstracta"
+virtual threads
+("programacion funcional" AND inmutabilidad) OR concurrencia
+concurrencia
+"programacion funcional"
+"latencia p99"
+"memoria ram"
+(latencia OR rendimiento) AND NOT lento
+virtual threads
+microservicios
+"alta concurrencia"
+ranking
+trie
+("hilos virtuales" OR fibras) AND latencia
+("indice invertido" OR trie) AND memoria
+java
+bm25
+rendimiento
+inmutabilidad
+microservicios
+("indice invertido" OR trie) AND memoria
+ranking
+trie
+"memoria ram"
+latencia
+"alta concurrencia"
+"arbol de sintaxis abstracta"
+ranking
+("indice invertido" OR trie) AND memoria
+(concurrencia OR rendimiento) AND NOT bloqueos
+python
+bm25
+java
+"alta concurrencia"
+virtual threads
+scala
+(java OR scala) AND NOT python
+(java OR scala) AND NOT python
+"programacion funcional"
+(latencia OR rendimiento) AND NOT lento
+inmutabilidad
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+(bm25 OR ranking) AND "tiempo real"
+inmutabilidad
+("programacion funcional" AND inmutabilidad) OR concurrencia
+scala
+trie
+memoria
+"memoria ram"
+"cola de prioridad"
+inmutabilidad
+(latencia OR rendimiento) AND NOT lento
+memoria
+("hilos virtuales" OR fibras) AND latencia
+(concurrencia OR rendimiento) AND NOT bloqueos
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"arbol de sintaxis abstracta"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+memoria
+"hilos virtuales"
+algoritmo
+"latencia p99"
+(java OR scala) AND NOT python
+bm25
+ranking
+algoritmo
+"programacion funcional"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+inmutabilidad
+python
+(java OR scala) AND NOT python
+java
+"hilos virtuales"
+"ranking bm25"
+bm25
+"recolector de basura"
+trie
+latencia
+scala
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"hilos virtuales"
+algoritmo
+concurrencia
+scala
+(bm25 OR ranking) AND "tiempo real"
+memoria
+"memoria ram"
+"alta concurrencia"
+(concurrencia OR rendimiento) AND NOT bloqueos
+("hilos virtuales" OR fibras) AND latencia
+scala
+("hilos virtuales" OR fibras) AND latencia
+memoria
+bm25
+"indice invertido"
+scala
+"pattern matching"
+(java OR scala) AND NOT python
+(latencia OR rendimiento) AND NOT lento
+(bm25 OR ranking) AND "tiempo real"
+"arbol de sintaxis abstracta"
+scala
+"memoria ram"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"alta concurrencia"
+bm25
+trie
+java
+"arbol de sintaxis abstracta"
+"latencia p99"
+"memoria ram"
+(concurrencia OR rendimiento) AND NOT bloqueos
+"hilos virtuales"
+"arbol de sintaxis abstracta"
+java
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"pattern matching"
+ranking
+"cola de prioridad"
+"latencia p99"
+microservicios
+inmutabilidad
+"alta concurrencia"
+bm25
+(bm25 OR ranking) AND "tiempo real"
+(latencia OR rendimiento) AND NOT lento
+"cola de prioridad"
+latencia
+ranking
+"recolector de basura"
+java
+python
+("programacion funcional" AND inmutabilidad) OR concurrencia
+latencia
+python
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+bm25
+(latencia OR rendimiento) AND NOT lento
+"memoria ram"
+memoria
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"hilos virtuales"
+"arbol de sintaxis abstracta"
+ranking
+(latencia OR rendimiento) AND NOT lento
+concurrencia
+"pattern matching"
+trie
+ranking
+"alta concurrencia"
+virtual threads
+(latencia OR rendimiento) AND NOT lento
+python
+concurrencia
+"ranking bm25"
+(java OR scala) AND NOT python
+java
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"latencia p99"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+rendimiento
+(java OR scala) AND NOT python
+(concurrencia OR rendimiento) AND NOT bloqueos
+latencia
+("indice invertido" OR trie) AND memoria
+(concurrencia OR rendimiento) AND NOT bloqueos
+("indice invertido" OR trie) AND memoria
+python
+"indice invertido"
+"hilos virtuales"
+rendimiento
+trie
+algoritmo
+"ranking bm25"
+("hilos virtuales" OR fibras) AND latencia
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+(java OR scala) AND NOT python
+"recolector de basura"
+(latencia OR rendimiento) AND NOT lento
+memoria
+(bm25 OR ranking) AND "tiempo real"
+"ranking bm25"
+(latencia OR rendimiento) AND NOT lento
+"recolector de basura"
+"memoria ram"
+"latencia p99"
+"ranking bm25"
+(bm25 OR ranking) AND "tiempo real"
+ranking
+"pattern matching"
+"hilos virtuales"
+memoria
+"alta concurrencia"
+inmutabilidad
+inmutabilidad
+algoritmo
+"indice invertido"
+("indice invertido" OR trie) AND memoria
+("indice invertido" OR trie) AND memoria
+"indice invertido"
+"cola de prioridad"
+"arbol de sintaxis abstracta"
+("indice invertido" OR trie) AND memoria
+algoritmo
+trie
+("programacion funcional" AND inmutabilidad) OR concurrencia
+inmutabilidad
+rendimiento
+"ranking bm25"
+inmutabilidad
+rendimiento
+memoria
+"latencia p99"
+latencia
+(latencia OR rendimiento) AND NOT lento
+"indice invertido"
+concurrencia
+"arbol de sintaxis abstracta"
+trie
+"recolector de basura"
+python
+(latencia OR rendimiento) AND NOT lento
+("programacion funcional" AND inmutabilidad) OR concurrencia
+(concurrencia OR rendimiento) AND NOT bloqueos
+("indice invertido" OR trie) AND memoria
+("hilos virtuales" OR fibras) AND latencia
+(latencia OR rendimiento) AND NOT lento
+"latencia p99"
+"hilos virtuales"
+"latencia p99"
+"recolector de basura"
+"pattern matching"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+scala
+"recolector de basura"
+"hilos virtuales"
+virtual threads
+virtual threads
+java
+virtual threads
+(concurrencia OR rendimiento) AND NOT bloqueos
+(bm25 OR ranking) AND "tiempo real"
+(concurrencia OR rendimiento) AND NOT bloqueos
+scala
+("indice invertido" OR trie) AND memoria
+"programacion funcional"
+("hilos virtuales" OR fibras) AND latencia
+microservicios
+"alta concurrencia"
+scala
+virtual threads
+(java OR scala) AND NOT python
+trie
+"alta concurrencia"
+(java OR scala) AND NOT python
+rendimiento
+(concurrencia OR rendimiento) AND NOT bloqueos
+algoritmo
+("indice invertido" OR trie) AND memoria
+"hilos virtuales"
+python
+virtual threads
+memoria
+bm25
+scala
+(java OR scala) AND NOT python
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+inmutabilidad
+"memoria ram"
+"latencia p99"
+algoritmo
+("indice invertido" OR trie) AND memoria
+"hilos virtuales"
+algoritmo
+(concurrencia OR rendimiento) AND NOT bloqueos
+rendimiento
+"indice invertido"
+memoria
+memoria
+ranking
+"programacion funcional"
+("hilos virtuales" OR fibras) AND latencia
+virtual threads
+"memoria ram"
+(latencia OR rendimiento) AND NOT lento
+trie
+"ranking bm25"
+"recolector de basura"
+ranking
+("programacion funcional" AND inmutabilidad) OR concurrencia
+concurrencia
+(concurrencia OR rendimiento) AND NOT bloqueos
+ranking
+"memoria ram"
+"programacion funcional"
+"programacion funcional"
+(java OR scala) AND NOT python
+"latencia p99"
+"programacion funcional"
+trie
+"programacion funcional"
+java
+bm25
+(java OR scala) AND NOT python
+"cola de prioridad"
+memoria
+"alta concurrencia"
+("hilos virtuales" OR fibras) AND latencia
+microservicios
+latencia
+"hilos virtuales"
+"hilos virtuales"
+"arbol de sintaxis abstracta"
+bm25
+latencia
+(concurrencia OR rendimiento) AND NOT bloqueos
+"latencia p99"
+"cola de prioridad"
+"recolector de basura"
+(java OR scala) AND NOT python
+"hilos virtuales"
+java
+"hilos virtuales"
+trie
+"ranking bm25"
+(latencia OR rendimiento) AND NOT lento
+ranking
+(concurrencia OR rendimiento) AND NOT bloqueos
+"memoria ram"
+"pattern matching"
+microservicios
+"indice invertido"
+java
+scala
+"pattern matching"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+trie
+"latencia p99"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+trie
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"recolector de basura"
+algoritmo
+(bm25 OR ranking) AND "tiempo real"
+scala
+(bm25 OR ranking) AND "tiempo real"
+"pattern matching"
+inmutabilidad
+"recolector de basura"
+bm25
+(bm25 OR ranking) AND "tiempo real"
+concurrencia
+(latencia OR rendimiento) AND NOT lento
+bm25
+"programacion funcional"
+java
+(bm25 OR ranking) AND "tiempo real"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+virtual threads
+"cola de prioridad"
+"indice invertido"
+(concurrencia OR rendimiento) AND NOT bloqueos
+("programacion funcional" AND inmutabilidad) OR concurrencia
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"cola de prioridad"
+(bm25 OR ranking) AND "tiempo real"
+(java OR scala) AND NOT python
+python
+latencia
+(concurrencia OR rendimiento) AND NOT bloqueos
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+microservicios
+(concurrencia OR rendimiento) AND NOT bloqueos
+"pattern matching"
+inmutabilidad
+"cola de prioridad"
+java
+"latencia p99"
+(latencia OR rendimiento) AND NOT lento
+"programacion funcional"
+"latencia p99"
+concurrencia
+"hilos virtuales"
+(bm25 OR ranking) AND "tiempo real"
+rendimiento
+rendimiento
+"indice invertido"
+("indice invertido" OR trie) AND memoria
+(bm25 OR ranking) AND "tiempo real"
+(concurrencia OR rendimiento) AND NOT bloqueos
+("hilos virtuales" OR fibras) AND latencia
+"ranking bm25"
+"pattern matching"
+"memoria ram"
+microservicios
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+(bm25 OR ranking) AND "tiempo real"
+algoritmo
+microservicios
+memoria
+"memoria ram"
+"indice invertido"
+"alta concurrencia"
+trie
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"alta concurrencia"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"pattern matching"
+memoria
+"arbol de sintaxis abstracta"
+microservicios
+"latencia p99"
+"alta concurrencia"
+(bm25 OR ranking) AND "tiempo real"
+rendimiento
+ranking
+trie
+algoritmo
+rendimiento
+"alta concurrencia"
+"latencia p99"
+microservicios
+ranking
+"indice invertido"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+rendimiento
+(java OR scala) AND NOT python
+java
+"ranking bm25"
+latencia
+("indice invertido" OR trie) AND memoria
+(concurrencia OR rendimiento) AND NOT bloqueos
+"ranking bm25"
+rendimiento
+"pattern matching"
+inmutabilidad
+("indice invertido" OR trie) AND memoria
+python
+scala
+scala
+(concurrencia OR rendimiento) AND NOT bloqueos
+"arbol de sintaxis abstracta"
+bm25
+("hilos virtuales" OR fibras) AND latencia
+(latencia OR rendimiento) AND NOT lento
+"pattern matching"
+"latencia p99"
+scala
+(latencia OR rendimiento) AND NOT lento
+"alta concurrencia"
+"alta concurrencia"
+inmutabilidad
+java
+latencia
+("hilos virtuales" OR fibras) AND latencia
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+bm25
+bm25
+algoritmo
+memoria
+("hilos virtuales" OR fibras) AND latencia
+("hilos virtuales" OR fibras) AND latencia
+"pattern matching"
+"ranking bm25"
+(bm25 OR ranking) AND "tiempo real"
+(latencia OR rendimiento) AND NOT lento
+(java OR scala) AND NOT python
+"indice invertido"
+(java OR scala) AND NOT python
+"pattern matching"
+memoria
+"latencia p99"
+"arbol de sintaxis abstracta"
+(java OR scala) AND NOT python
+"ranking bm25"
+bm25
+(bm25 OR ranking) AND "tiempo real"
+scala
+"cola de prioridad"
+"arbol de sintaxis abstracta"
+bm25
+bm25
+"recolector de basura"
+"alta concurrencia"
+(bm25 OR ranking) AND "tiempo real"
+python
+("indice invertido" OR trie) AND memoria
+"cola de prioridad"
+(latencia OR rendimiento) AND NOT lento
+"hilos virtuales"
+"recolector de basura"
+algoritmo
+"recolector de basura"
+(bm25 OR ranking) AND "tiempo real"
+java
+(java OR scala) AND NOT python
+(concurrencia OR rendimiento) AND NOT bloqueos
+bm25
+"pattern matching"
+"pattern matching"
+ranking
+memoria
+"memoria ram"
+trie
+python
+(latencia OR rendimiento) AND NOT lento
+("hilos virtuales" OR fibras) AND latencia
+"arbol de sintaxis abstracta"
+"hilos virtuales"
+"alta concurrencia"
+memoria
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"indice invertido"
+ranking
+(bm25 OR ranking) AND "tiempo real"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+bm25
+"latencia p99"
+rendimiento
+(concurrencia OR rendimiento) AND NOT bloqueos
+microservicios
+(bm25 OR ranking) AND "tiempo real"
+(concurrencia OR rendimiento) AND NOT bloqueos
+microservicios
+memoria
+"pattern matching"
+inmutabilidad
+"ranking bm25"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"alta concurrencia"
+"recolector de basura"
+(bm25 OR ranking) AND "tiempo real"
+"programacion funcional"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"memoria ram"
+"ranking bm25"
+bm25
+("indice invertido" OR trie) AND memoria
+"latencia p99"
+inmutabilidad
+trie
+rendimiento
+python
+rendimiento
+java
+latencia
+concurrencia
+java
+("programacion funcional" AND inmutabilidad) OR concurrencia
+latencia
+(concurrencia OR rendimiento) AND NOT bloqueos
+"hilos virtuales"
+memoria
+"hilos virtuales"
+inmutabilidad
+latencia
+virtual threads
+"latencia p99"
+(concurrencia OR rendimiento) AND NOT bloqueos
+(bm25 OR ranking) AND "tiempo real"
+(bm25 OR ranking) AND "tiempo real"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+inmutabilidad
+inmutabilidad
+"hilos virtuales"
+"hilos virtuales"
+algoritmo
+concurrencia
+"memoria ram"
+ranking
+("indice invertido" OR trie) AND memoria
+java
+"hilos virtuales"
+"arbol de sintaxis abstracta"
+"arbol de sintaxis abstracta"
+"programacion funcional"
+"hilos virtuales"
+ranking
+(java OR scala) AND NOT python
+(concurrencia OR rendimiento) AND NOT bloqueos
+ranking
+scala
+"cola de prioridad"
+ranking
+"cola de prioridad"
+"arbol de sintaxis abstracta"
+ranking
+algoritmo
+(java OR scala) AND NOT python
+"pattern matching"
+memoria
+"pattern matching"
+"programacion funcional"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+ranking
+(latencia OR rendimiento) AND NOT lento
+concurrencia
+(concurrencia OR rendimiento) AND NOT bloqueos
+memoria
+"latencia p99"
+rendimiento
+"arbol de sintaxis abstracta"
+("hilos virtuales" OR fibras) AND latencia
+(concurrencia OR rendimiento) AND NOT bloqueos
+latencia
+algoritmo
+"latencia p99"
+"cola de prioridad"
+concurrencia
+bm25
+"ranking bm25"
+python
+(concurrencia OR rendimiento) AND NOT bloqueos
+ranking
+(latencia OR rendimiento) AND NOT lento
+algoritmo
+"memoria ram"
+python
+"indice invertido"
+ranking
+"cola de prioridad"
+rendimiento
+"alta concurrencia"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"memoria ram"
+(concurrencia OR rendimiento) AND NOT bloqueos
+trie
+"indice invertido"
+(bm25 OR ranking) AND "tiempo real"
+"recolector de basura"
+"hilos virtuales"
+"pattern matching"
+"programacion funcional"
+(bm25 OR ranking) AND "tiempo real"
+"ranking bm25"
+"pattern matching"
+algoritmo
+"cola de prioridad"
+microservicios
+"pattern matching"
+("hilos virtuales" OR fibras) AND latencia
+java
+(latencia OR rendimiento) AND NOT lento
+(latencia OR rendimiento) AND NOT lento
+"ranking bm25"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+java
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+memoria
+latencia
+(bm25 OR ranking) AND "tiempo real"
+(java OR scala) AND NOT python
+trie
+trie
+("hilos virtuales" OR fibras) AND latencia
+"arbol de sintaxis abstracta"
+rendimiento
+inmutabilidad
+"cola de prioridad"
+inmutabilidad
+"pattern matching"
+"ranking bm25"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+ranking
+"memoria ram"
+memoria
+microservicios
+"recolector de basura"
+"cola de prioridad"
+"pattern matching"
+trie
+scala
+scala
+inmutabilidad
+trie
+(java OR scala) AND NOT python
+virtual threads
+("indice invertido" OR trie) AND memoria
+(java OR scala) AND NOT python
+scala
+python
+"pattern matching"
+(latencia OR rendimiento) AND NOT lento
+"alta concurrencia"
+"cola de prioridad"
+"latencia p99"
+inmutabilidad
+(concurrencia OR rendimiento) AND NOT bloqueos
+scala
+inmutabilidad
+memoria
+(bm25 OR ranking) AND "tiempo real"
+"indice invertido"
+trie
+microservicios
+virtual threads
+bm25
+("indice invertido" OR trie) AND memoria
+rendimiento
+"latencia p99"
+"latencia p99"
+"latencia p99"
+"memoria ram"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+latencia
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"pattern matching"
+"alta concurrencia"
+("indice invertido" OR trie) AND memoria
+concurrencia
+inmutabilidad
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+rendimiento
+memoria
+python
+scala
+java
+"alta concurrencia"
+virtual threads
+"programacion funcional"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+concurrencia
+"arbol de sintaxis abstracta"
+inmutabilidad
+("indice invertido" OR trie) AND memoria
+("indice invertido" OR trie) AND memoria
+microservicios
+microservicios
+rendimiento
+(bm25 OR ranking) AND "tiempo real"
+"ranking bm25"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"programacion funcional"
+"hilos virtuales"
+(java OR scala) AND NOT python
+("indice invertido" OR trie) AND memoria
+("hilos virtuales" OR fibras) AND latencia
+memoria
+latencia
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+(concurrencia OR rendimiento) AND NOT bloqueos
+latencia
+(concurrencia OR rendimiento) AND NOT bloqueos
+("indice invertido" OR trie) AND memoria
+("hilos virtuales" OR fibras) AND latencia
+"arbol de sintaxis abstracta"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+rendimiento
+"latencia p99"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+rendimiento
+(bm25 OR ranking) AND "tiempo real"
+latencia
+ranking
+python
+latencia
+("indice invertido" OR trie) AND memoria
+(latencia OR rendimiento) AND NOT lento
+"hilos virtuales"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"pattern matching"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"recolector de basura"
+"alta concurrencia"
+"recolector de basura"
+"arbol de sintaxis abstracta"
+memoria
+concurrencia
+bm25
+bm25
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"programacion funcional"
+"alta concurrencia"
+("hilos virtuales" OR fibras) AND latencia
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"alta concurrencia"
+"recolector de basura"
+latencia
+(latencia OR rendimiento) AND NOT lento
+"latencia p99"
+memoria
+virtual threads
+"arbol de sintaxis abstracta"
+"hilos virtuales"
+(concurrencia OR rendimiento) AND NOT bloqueos
+bm25
+inmutabilidad
+trie
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+(java OR scala) AND NOT python
+virtual threads
+rendimiento
+rendimiento
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+("programacion funcional" AND inmutabilidad) OR concurrencia
+virtual threads
+"recolector de basura"
+"pattern matching"
+"latencia p99"
+(concurrencia OR rendimiento) AND NOT bloqueos
+"hilos virtuales"
+"arbol de sintaxis abstracta"
+trie
+"memoria ram"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"indice invertido"
+"memoria ram"
+concurrencia
+virtual threads
+trie
+"programacion funcional"
+(concurrencia OR rendimiento) AND NOT bloqueos
+(bm25 OR ranking) AND "tiempo real"
+python
+bm25
+"arbol de sintaxis abstracta"
+rendimiento
+virtual threads
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+(java OR scala) AND NOT python
+inmutabilidad
+concurrencia
+"hilos virtuales"
+"recolector de basura"
+microservicios
+virtual threads
+trie
+memoria
+java
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+microservicios
+(bm25 OR ranking) AND "tiempo real"
+java
+latencia
+python
+"programacion funcional"
+"programacion funcional"
+(latencia OR rendimiento) AND NOT lento
+"alta concurrencia"
+scala
+"programacion funcional"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+virtual threads
+(java OR scala) AND NOT python
+inmutabilidad
+java
+memoria
+concurrencia
+latencia
+("hilos virtuales" OR fibras) AND latencia
+ranking
+ranking
+(concurrencia OR rendimiento) AND NOT bloqueos
+java
+memoria
+"pattern matching"
+"cola de prioridad"
+rendimiento
+("hilos virtuales" OR fibras) AND latencia
+("indice invertido" OR trie) AND memoria
+"arbol de sintaxis abstracta"
+(java OR scala) AND NOT python
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"alta concurrencia"
+"pattern matching"
+latencia
+trie
+"indice invertido"
+"pattern matching"
+algoritmo
+(bm25 OR ranking) AND "tiempo real"
+"hilos virtuales"
+algoritmo
+trie
+(bm25 OR ranking) AND "tiempo real"
+("indice invertido" OR trie) AND memoria
+(concurrencia OR rendimiento) AND NOT bloqueos
+"hilos virtuales"
+bm25
+(java OR scala) AND NOT python
+(java OR scala) AND NOT python
+microservicios
+latencia
+"indice invertido"
+"arbol de sintaxis abstracta"
+latencia
+inmutabilidad
+scala
+"arbol de sintaxis abstracta"
+"pattern matching"
+java
+microservicios
+"latencia p99"
+(bm25 OR ranking) AND "tiempo real"
+bm25
+(java OR scala) AND NOT python
+("hilos virtuales" OR fibras) AND latencia
+(bm25 OR ranking) AND "tiempo real"
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"ranking bm25"
+"pattern matching"
+(concurrencia OR rendimiento) AND NOT bloqueos
+"recolector de basura"
+(latencia OR rendimiento) AND NOT lento
+(concurrencia OR rendimiento) AND NOT bloqueos
+java
+"programacion funcional"
+trie
+"latencia p99"
+("hilos virtuales" OR fibras) AND latencia
+virtual threads
+"memoria ram"
+trie
+("indice invertido" OR trie) AND memoria
+"cola de prioridad"
+bm25
+"hilos virtuales"
+virtual threads
+("hilos virtuales" OR fibras) AND latencia
+("indice invertido" OR trie) AND memoria
+memoria
+("indice invertido" OR trie) AND memoria
+"ranking bm25"
+"cola de prioridad"
+java
+"hilos virtuales"
+"hilos virtuales"
+"pattern matching"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+memoria
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+(bm25 OR ranking) AND "tiempo real"
+ranking
+(concurrencia OR rendimiento) AND NOT bloqueos
+"arbol de sintaxis abstracta"
+rendimiento
+(java OR scala) AND NOT python
+"ranking bm25"
+"arbol de sintaxis abstracta"
+microservicios
+microservicios
+concurrencia
+"pattern matching"
+(concurrencia OR rendimiento) AND NOT bloqueos
+latencia
+"latencia p99"
+(latencia OR rendimiento) AND NOT lento
+python
+"hilos virtuales"
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"cola de prioridad"
+ranking
+"hilos virtuales"
+concurrencia
+"hilos virtuales"
+trie
+inmutabilidad
+rendimiento
+scala
+ranking
+"arbol de sintaxis abstracta"
+"memoria ram"
+virtual threads
+rendimiento
+("programacion funcional" AND inmutabilidad) OR concurrencia
+"cola de prioridad"
+ranking
+"latencia p99"
+ranking
+microservicios
+bm25
+inmutabilidad
+latencia
+"indice invertido"
+concurrencia
+java
+algoritmo
+"cola de prioridad"
+ranking
+python
+microservicios AND ("alta disponibilidad" OR escalabilidad)
+"indice invertido"
+virtual threads
+"ranking bm25"
+("hilos virtuales" OR fibras) AND latencia
+"indice invertido"
+latencia
+(latencia OR rendimiento) AND NOT lento
+(java OR scala) AND NOT python
+"memoria ram"
+algoritmo
+"latencia p99"
+(java OR scala) AND NOT python
+trie
+("indice invertido" OR trie) AND memoria
