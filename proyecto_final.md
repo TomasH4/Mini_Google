@@ -1,6 +1,6 @@
 # Proyecto: Mini-Google (Motor de Búsqueda de Texto Completo en Memoria)
 
-**Benchmark Puro de Backend: Scala 3 vs. Java 21+ vs. Python 3.12+**
+**Benchmark Puro de Backend: Scala 3 vs. Java 21+ vs. Go 1.22+**
 
 ---
 
@@ -10,7 +10,7 @@
 
 **Mini-Google** es un motor de búsqueda de texto completo (*Full-Text Search Engine*) que funciona **100% en memoria RAM**, construido desde cero sin utilizar bases de datos externas (como PostgreSQL o MongoDB) ni motores de búsqueda prefabricados (como Elasticsearch o Apache Lucene).
 
-Es el equivalente en software al "cerebro" interno de buscadores comerciales como Google, Amazon o Mercado Libre, diseñado específicamente para funcionar como un **campo de pruebas puro** que permita medir y comparar de forma justa el rendimiento, la gestión de memoria, la concurrencia y la expresividad de **Scala, Java y Python**.
+Es el equivalente en software al "cerebro" interno de buscadores comerciales como Google, Amazon o Mercado Libre, diseñado específicamente para funcionar como un **campo de pruebas puro** que permita medir y comparar de forma justa el rendimiento, la gestión de memoria, la concurrencia y la expresividad de **Scala, Java y Go**.
 
 ### ¿Qué hace en la práctica?
 
@@ -34,16 +34,16 @@ Para que el proyecto tenga un alcance real de ingeniería, el buscador resuelve 
 
 ---
 
-## 2. ¿Por qué este proyecto diferencia de manera pura a Scala, Java y Python?
+## 2. ¿Por qué este proyecto diferencia de manera pura a Scala, Java y Go?
 
 Si construyéramos una API CRUD tradicional con base de datos, el 95% del tiempo se iría esperando respuestas de red o de disco duro, midiendo la base de datos en lugar del lenguaje. Al operar **100% en RAM y con librerías estándar**, cada parte del buscador pone a prueba el ADN real de cada lenguaje:
 
-| Componente del Buscador | Scala 3 (Funcional / Híbrido) | Java 21+ (Imperativo / DOP Moderno) | Python 3.12+ (Dinámico / Interpretado) |
+| Componente del Buscador | Scala 3 (Funcional / Híbrido) | Java 21+ (Imperativo / DOP Moderno) | Go 1.22+ (Compilado a nativo / Concurrente) |
 | --- | --- | --- | --- |
-| **1. Construcción del Índice** | Transformaciones ultra expresivas con colecciones inmutables (`flatMap`, `groupBy`, `foldLeft`), pero alto estrés para el *Garbage Collector* si se crean demasiados objetos intermedios. | Mayor verbosidad usando estructuras mutables (`HashMap`, arreglos primitivos `int[]`), pero control milimétrico de la memoria RAM y máxima velocidad del compilador JIT. | Código sumamente corto y rápido de escribir con `dict`, `set` y comprensiones de listas, pero con un consumo de RAM muy superior porque cada entero y texto es un `PyObject` completo. |
-| **2. Parser Booleano (AST)** | Escenario ideal para lucir **Tipos de Datos Algebraicos (`enum` / `sealed trait`)**, *Pattern Matching* exhaustivo y recursión de cola (`@tailrec`). | Pone a prueba el nuevo paradigma de Java moderno: `sealed interfaces`, `records` inmutables y *Pattern Matching for switch*. | Evalúa el uso de `@dataclass` (con `__slots__` para ahorrar RAM) y `match / case` estructural, evidenciando el límite de recursión sin optimización de cola. |
-| **3. Ranking BM25 y Fuzzy Search** | Comparación directa entre pipelines funcionales declarativos vs. vistas perezosas (`View`) para evitar recálculos costosos en CPU. | Terreno donde Java saca ventaja bruta en bucles matemáticos intensivos, manejo de `PriorityQueue` y cercanía en caché del procesador. | Deja al descubierto el costo real de ejecutar bucles matemáticos puros e indirección de punteros en el intérprete sin ayuda de código C externo. |
-| **4. Concurrencia en Caliente** | Uso de **Fibras (`ZIO` / `Cats Effect`)**, estructuras inmutables compartidas sin *locks* (`Ref` / `STM`) o el Modelo de Actores. | Uso de **Virtual Threads (Project Loom)** combinados con `ConcurrentHashMap` y bloqueos de lectura/escritura (`StampedLock` / `ReadWriteLock`). | Exposición directa del **GIL (Global Interpreter Lock)**: `asyncio` no paraleliza el cómputo en CPU, obligando a evaluar el costo de `multiprocessing` o el modo experimental *free-threaded*. |
+| **1. Construcción del Índice** | Transformaciones ultra expresivas con colecciones inmutables (`flatMap`, `groupBy`, `foldLeft`), pero alto estrés para el *Garbage Collector* si se crean demasiados objetos intermedios. | Mayor verbosidad usando estructuras mutables (`HashMap`, arreglos primitivos `int[]`), pero control milimétrico de la memoria RAM y máxima velocidad del compilador JIT. | Mapas nativos (`map[string][]Posting`) y slices contiguos (`[]int`) con structs por valor: poca memoria por entrada y código directo, pero más verboso que Scala (bucles `for` en lugar de `map` / `filter` / `groupBy`). |
+| **2. Parser Booleano (AST)** | Escenario ideal para lucir **Tipos de Datos Algebraicos (`enum` / `sealed trait`)**, *Pattern Matching* exhaustivo y recursión de cola (`@tailrec`). | Pone a prueba el nuevo paradigma de Java moderno: `sealed interfaces`, `records` inmutables y *Pattern Matching for switch*. | Sin tipos algebraicos ni *pattern matching*: el AST se modela con una `interface` y structs, y se evalúa con `type switch`. El compilador no verifica que el `switch` cubra todos los casos. |
+| **3. Ranking BM25 y Fuzzy Search** | Comparación directa entre pipelines funcionales declarativos vs. vistas perezosas (`View`) para evitar recálculos costosos en CPU. | Terreno donde Java saca ventaja bruta en bucles matemáticos intensivos, manejo de `PriorityQueue` y cercanía en caché del procesador. | Código compilado a nativo sin JIT: rinde al máximo desde la primera consulta (sin calentamiento), con `container/heap` para el Top-K y `sort.Search` para búsquedas binarias. |
+| **4. Concurrencia en Caliente** | Uso de **Fibras (`ZIO` / `Cats Effect`)**, estructuras inmutables compartidas sin *locks* (`Ref` / `STM`) o el Modelo de Actores. | Uso de **Virtual Threads (Project Loom)** combinados con `ConcurrentHashMap` y bloqueos de lectura/escritura (`StampedLock` / `ReadWriteLock`). | Uso de **Goroutines** (hilos ligeros del runtime) con `sync.RWMutex` o un `atomic.Pointer` hacia una versión inmutable del índice, y canales (`chan`) para coordinar lectores y escritores. Su GC concurrente prioriza pausas cortas. |
 
 ---
 
@@ -203,10 +203,10 @@ Aunque comparten el mismo contrato, cada lenguaje debe aprovechar sus herramient
 * En el Nivel 4, usa **`Virtual Threads`** (`Executors.newVirtualThreadPerTaskExecutor()`) y un **`ReentrantReadWriteLock`** (o `StampedLock`) protegiendo el índice.
 
 
-* **Python 3.12+:**
-* Modela `QueryNode` con **`@dataclass(slots=True, frozen=True)`** (`slots=True` es vital para reducir el consumo de memoria de los objetos en Python) y evalúalo con **`match / case`**.
-* Usa **`heapq`** de la librería estándar para el Top-K de BM25 y **`bisect`** para búsquedas binarias en listas ordenadas.
-* En el Nivel 4, implementa el benchmark con `ThreadPoolExecutor` (para demostrar el cuello de botella del GIL) y opcionalmente compáralo contra `ProcessPoolExecutor`.
+* **Go 1.22+:**
+* Modela `QueryNode` como una **`interface`** implementada por structs (`type AndNode struct{ Left, Right QueryNode }`) y evalúalo con un **`type switch`**.
+* Usa slices **`[]int`** para las posiciones (memoria contigua, sin objetos por entero), **`container/heap`** para el Top-K de BM25 y **`sort.Search`** para búsquedas binarias en listas ordenadas.
+* En el Nivel 4, implementa el benchmark con **goroutines** y `sync.WaitGroup`, protegiendo el índice con un **`sync.RWMutex`** (o publicando versiones inmutables con `atomic.Pointer`).
 
 
 
@@ -223,7 +223,7 @@ Aunque comparten el mismo contrato, cada lenguaje debe aprovechar sus herramient
 ### Reglas de Juego
 
 1. **Formato único de entrada (`.tsv`):** Todos los documentos se entregan en un único archivo de texto separado por tabulaciones (`ID \t Título \t Texto`). Así ningún lenguaje depende de librerías externas para parsear JSON o XML; solo se usa `.split("\t")` nativo.
-2. **Cero librerías en C/Rust:** En Python queda prohibido usar `NumPy`, `Pandas` o envoltorios en C para el cálculo matemático, y en Java/Scala queda prohibido usar `Lucene`. Todo debe implementarse con las colecciones y herramientas estándar de cada lenguaje.
+2. **Cero librerías de búsqueda o en C:** En Java/Scala queda prohibido usar `Lucene` y en Go queda prohibido usar `Bleve` (u otros motores) o código C vía `cgo`. Todo debe implementarse con las colecciones y herramientas estándar de cada lenguaje.
 3. **Medición con datos precargados en RAM:** Los tres programas primero leerán el archivo `.tsv` a una lista en memoria. El cronómetro solo se inicia cuando empieza el procesamiento en RAM para aislar la velocidad del disco SSD.
 
 ### Métricas a Registrar
@@ -231,7 +231,7 @@ Aunque comparten el mismo contrato, cada lenguaje debe aprovechar sus herramient
 * **Tiempo de Indexación (ms):** Cuánto tarda cada lenguaje en transformar el texto crudo en el índice invertido y el árbol Trie.
 * **Huella de Memoria RAM (MB):** Cuánta memoria consume mantener 50,000+ documentos indexados con sus posiciones.
 * **Throughput de Búsqueda (Queries/seg):** Cuántas consultas por segundo responde cada motor bajo carga concurrente.
-* **Latencia de Cola (p95 y p99):** Cuánto tardan el 1% de las consultas más lentas (pausas de GC en la JVM vs. bloqueos de CPU en Python).
+* **Latencia de Cola (p95 y p99):** Cuánto tardan el 1% de las consultas más lentas (pausas del GC de la JVM vs. pausas del GC concurrente de Go).
 * **Mantenibilidad y Expresividad:** Líneas de código, claridad arquitectónica y garantías en tiempo de compilación.
 
 ---
@@ -245,57 +245,15 @@ Aunque comparten el mismo contrato, cada lenguaje debe aprovechar sus herramient
 
 ---
 
-## 8. Script Generador del Dataset de Prueba
+## 8. Generador del Dataset de Prueba
 
-Ejecuta este script una sola vez para generar `corpus.tsv` (50,000 documentos con distribución realista tipo Ley de Zipf) y `queries.txt` (5,000 consultas de prueba) listos para alimentar a Scala, Java y Python:
+El generador está incluido en la implementación Scala (el proyecto no usa Python). Con la misma semilla produce el mismo archivo byte a byte en cualquier máquina, así Java, Scala y Go miden con exactamente los mismos datos. Genera `corpus.tsv` (50,000 documentos con distribución tipo Ley de Zipf) y `queries.txt` (5,000 consultas de prueba):
 
-```python
-import random
-
-SEED = 42
-NUM_DOCS = 50_000
-NUM_QUERIES = 5_000
-VOCAB_SIZE = 15_000
-
-def generate_dataset():
-    rng = random.Random(SEED)
-    
-    # 1. Vocabulario base + palabras clave técnicas para consultas predecibles
-    core_terms = [
-        "scala", "java", "python", "backend", "concurrencia", "memoria",
-        "rendimiento", "algoritmo", "indice", "busqueda", "arquitectura",
-        "microservicios", "datos", "sistema", "servidor", "rapido", "lento",
-        "funcional", "objetos", "hilos", "fibras", "latencia", "distribuido"
-    ]
-    vocab = core_terms + [f"palabra{i}" for i in range(VOCAB_SIZE - len(core_terms))]
-    
-    # Pesos tipo Ley de Zipf (unas pocas palabras son muy frecuentes, la mayoría son raras)
-    weights = [1.0 / ((i + 1) ** 0.85) for i in range(len(vocab))]
-    
-    # 2. Generar corpus.tsv
-    with open("corpus.tsv", "w", encoding="utf-8") as f:
-        for doc_id in range(1, NUM_DOCS + 1):
-            title_len = rng.randint(4, 9)
-            body_len = rng.randint(60, 180)
-            
-            title = " ".join(rng.choices(vocab, weights=weights, k=title_len))
-            body = " ".join(rng.choices(vocab, weights=weights, k=body_len))
-            f.write(f"{doc_id}\t{title}\t{body}\n")
-
-    # 3. Generar queries.txt (mezcla de simples, booleanas y frases exactas)
-    with open("queries.txt", "w", encoding="utf-8") as f:
-        for _ in range(NUM_QUERIES):
-            q_type = rng.random()
-            w1, w2, w3 = rng.sample(core_terms, 3)
-            if q_type < 0.35:
-                f.write(f"{w1} {w2}\n")
-            elif q_type < 0.70:
-                f.write(f"({w1} OR {w2}) AND NOT {w3}\n")
-            else:
-                f.write(f'"{w1} {w2}" AND {w3}\n')
-
-if __name__ == "__main__":
-    generate_dataset()
-    print("Listo: corpus.tsv y queries.txt generados con semilla fija.")
-
+```bash
+java -jar scala/target/mini-google-scala-1.0-SNAPSHOT.jar generate --docs 50000 --queries 5000 --seed 42 --out corpus.tsv --queries-out queries.txt
 ```
+
+* **`corpus.tsv`:** un documento por línea con el formato `ID \t Título \t Texto`. El texto mezcla conectores frecuentes, vocabulario técnico (`scala`, `java`, `golang`, `concurrencia`, `memoria`, `backend`...) y palabras sintéticas, con oraciones, mayúsculas, comas y puntos para ejercitar la limpieza del texto.
+* **`queries.txt`:** una consulta por línea, rotando entre término simple, `AND`, `OR`, `AND NOT`, frase exacta (tomada del propio corpus, así siempre tiene al menos un resultado) y combinaciones con paréntesis.
+
+Opciones y detalles en `scala/README.md`.
