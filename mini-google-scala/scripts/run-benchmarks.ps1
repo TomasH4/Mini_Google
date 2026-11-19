@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
   Ejecuta todos los escenarios de benchmark de la implementación Scala.
 
