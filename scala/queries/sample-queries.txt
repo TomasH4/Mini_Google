@@ -1,0 +1,18 @@
+# Consultas del escenario "sample" (los 11 documentos de src/main/resources/documents).
+# Una consulta por línea; las líneas vacías y las que empiezan con # se ignoran.
+seguridad
+accesibilidad
+usabilidad
+"deep eval"
+"document two content"
+seguridad AND owasp
+accesibilidad OR usabilidad
+informe AND NOT seguridad
+(seguridad OR owasp) AND NOT "inyeccion sql"
+java AND concurrency
+"virtual threads"
+java OR scala OR python
+(regresion OR pruebas) AND NOT java
+NOT informe
+"quick brown fox"
+indexing AND (memory OR java)

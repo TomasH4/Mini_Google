@@ -1,0 +1,5 @@
+# Salida de compilación
+target/
+
+# Corpus sintéticos generados (se regeneran idénticos con la misma semilla)
+bench-data/
