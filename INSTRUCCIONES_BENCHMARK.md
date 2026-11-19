@@ -26,9 +26,10 @@ git pull origin main
 ```
 
 ### Paso 2: Generar todos los escenarios
-Desde la carpeta raíz del proyecto, ejecuta:
+Desde la carpeta `dataset/` del proyecto, ejecuta:
 
 ```bash
+cd dataset
 python generate_dataset.py --scenario all
 ```
 
@@ -115,19 +116,20 @@ Para permitir la consolidación automática y el ranking numérico exigido por l
 
 ## 7. Ejecución de Referencia en Java 21
 
-Compilar el proyecto:
+Compilar el módulo Java:
 ```bash
+cd mini-google-java
 mvn package -DskipTests
 ```
 
-Ejecutar cada escenario:
+Ejecutar cada escenario (leyendo los datos de `../dataset/` y guardando en `../dataset/reportes/`):
 ```bash
 # Tier 1 (25k)
-java -jar target/mini-google-1.0-SNAPSHOT.jar --benchmark corpus_25k.tsv queries_25k.txt reporte_java_25k.json
+java -jar target/mini-google-1.0-SNAPSHOT.jar --benchmark ../dataset/corpus_25k.tsv ../dataset/queries_25k.txt ../dataset/reportes/reporte_java_25k.json
 
 # Tier 2 (75k)
-java -jar target/mini-google-1.0-SNAPSHOT.jar --benchmark corpus_75k.tsv queries_75k.txt reporte_java_75k.json
+java -jar target/mini-google-1.0-SNAPSHOT.jar --benchmark ../dataset/corpus_75k.tsv ../dataset/queries_75k.txt ../dataset/reportes/reporte_java_75k.json
 
 # Tier 3 (150k)
-java -Xmx4g -jar target/mini-google-1.0-SNAPSHOT.jar --benchmark corpus_150k.tsv queries_150k.txt reporte_java_150k.json
+java -Xmx4g -jar target/mini-google-1.0-SNAPSHOT.jar --benchmark ../dataset/corpus_150k.tsv ../dataset/queries_150k.txt ../dataset/reportes/reporte_java_150k.json
 ```

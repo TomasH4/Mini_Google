@@ -47,11 +47,6 @@
         <testSourceDirectory>src/test/scala</testSourceDirectory>
 
         <resources>
-            <!-- Se reutilizan los documentos de ejemplo de la versión Java: mismos datos de entrada -->
-            <resource>
-                <directory>${project.basedir}/../src/main/resources</directory>
-            </resource>
-            <!-- Configuración propia de la versión Scala -->
             <resource>
                 <directory>src/main/resources</directory>
             </resource>

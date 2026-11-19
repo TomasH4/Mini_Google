@@ -1,14 +1,31 @@
 # Maven
 target/
+**/target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
 release.properties
 dependency-reduced-pom.xml
+**/dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
+
+# Scala Benchmarks locales
+bench-data/
+**/bench-data/
+bench-results/
+**/bench-results/
+
+# Go
+bin/
+**/bin/
+*.exe
+
+# Python
+__pycache__/
+*.pyc
 
 # IDEs
 .idea/
@@ -25,7 +42,10 @@ buildNumber.properties
 .DS_Store
 Thumbs.db
 
-
-# Datasets generados por generate_dataset.py
-*.tsv
-queries*.txt
+# Datasets masivos generados dinámicamente
+corpus_*.tsv
+**/corpus_*.tsv
+queries_*.txt
+**/queries_*.txt
+*.tsv.gz
+*.tsv.zip

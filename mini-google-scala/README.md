@@ -25,7 +25,7 @@ No hace falta instalar Scala: Maven descarga el compilador de Scala 3.3.4 la pri
 
 ## Compilar y probar
 
-Desde la carpeta `scala/`:
+Desde la carpeta `mini-google-scala/`:
 
 ```bash
 mvn clean package
@@ -44,7 +44,7 @@ un import o una variable sin usar) hace fallar la compilación.
 ### IntelliJ IDEA
 
 1. Instalar el plugin **Scala** (Settings → Plugins).
-2. File → Open… → seleccionar `scala/pom.xml` → Open as Project.
+2. File → Open… → seleccionar `mini-google-scala/pom.xml` → Open as Project.
 3. File → Project Structure… → SDK: Java 21.
 4. Abrir `src/main/scala/minigoogle/Main.scala` y ejecutar `Main`.
 

@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   Ejecuta todos los escenarios de benchmark de la implementación Scala.
 
@@ -29,7 +29,7 @@ $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $jar = Join-Path $root "target\mini-google-scala-1.0-SNAPSHOT.jar"
 if (-not (Test-Path $jar)) {
-    throw "No existe $jar. Compila primero con: mvn -f scala/pom.xml clean package"
+    throw "No existe $jar. Compila primero con: mvn -f mini-google-scala/pom.xml clean package"
 }
 
 $data = Join-Path $root "bench-data"

@@ -1,0 +1,1 @@
+Document four content. Java's new features include records, sealed classes and pattern matching for switch. Search engines benefit from efficient indexing.
