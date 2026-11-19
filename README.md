@@ -2,6 +2,8 @@
 
 **Benchmark y Estudio Comparativo de Paradigmas: Java 21 vs. Scala 3 vs. Go 1.22**
 
+Abre [el reporte interactivo](index.html) con doble clic desde la raíz para explorar las métricas, comparar el código y ajustar el simulador de decisión.
+
 ---
 
 ## 1. Descripción General
@@ -37,9 +39,10 @@ classroom-project/
 │   ├── src/                     # Código fuente Scala y suite de tests (MUnit)
 │   └── README.md                # Guía de compilación y ejecución de Scala
 │
-├── mini-google-go/              # Implementación planificada en Golang (Fase 3)
-│   ├── go.mod                   # Módulo base de Go
-│   └── README.md                # Especificación técnica del motor en Go
+├── mini-google-go/              # Implementación en Go 1.22+
+│   ├── cmd/searchd/              # Búsqueda interactiva y CLI de benchmark
+│   ├── internal/                 # Índice, parser, ranking, trie y métricas
+│   └── README.md                 # Guía de uso y validación de Go
 │
 ├── INSTRUCCIONES_BENCHMARK.md   # Guía metodológica para la ejecución de pruebas
 ├── final_lenguajes_y_paradigmas.md # Rúbrica oficial y ponderación de criterios
@@ -78,16 +81,26 @@ mvn clean package
 ```
 
 ### D. Golang
-Consultar detalles en `mini-google-go/README.md`.
+
+Desde `mini-google-go/`:
+
+```text
+go run ./cmd/searchd interactive
+go run ./cmd/searchd bench
+```
+
+Consulta la [guía de Go](mini-google-go/README.md) para elegir un corpus, ajustar la concurrencia y exportar resultados.
 
 ---
 
 ## 4. Métricas y Comparación Experimental
 
+La comparación normalizada de Java, Scala y Go se ejecuta desde la raíz con `python benchmark/run.py`. La [guía de la suite](benchmark/README.md) describe la compuerta de paridad, las dos escalas y el [reporte consolidado](benchmark/results.json).
+
 Para asegurar condiciones equitativas y reproducibles:
 - Todos los lenguajes procesan **exactamente el mismo archivo TSV y las mismas consultas** generadas con semilla determinista ($\text{SEED}=42$).
-- Cada implementación genera un reporte en formato JSON estándar registrando:
+- Java y Go exportan JSON. Scala exporta CSV. Los reportes registran:
   - Tiempo de indexación en RAM (`indexTimeMs`).
   - Memoria RAM utilizada (`memoryUsedMb`).
   - Throughput secuencial y percentiles de latencia (Media, p50, p95, p99).
-  - Throughput concurrente con escalabilidad masiva de hilos/fibras/goroutines.
+  - Throughput concurrente en los benchmarks de Java y Go.

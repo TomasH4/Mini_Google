@@ -1,5 +1,7 @@
 # Guía Oficial de Benchmarking y Escenarios de Prueba
 
+Para comparar los tres motores bajo el mismo protocolo, ejecuta `python benchmark/run.py` desde la raíz. Los escenarios y el contrato de resultados están en la [guía de la suite normalizada](benchmark/README.md). Los comandos individuales de este documento sirven para reproducir las pruebas históricas de cada módulo.
+
 **Proyecto:** Mini-Google (Comparativo de Paradigmas y Lenguajes)  
 **Entornos:** Java 21 (Virtual Threads) vs. Scala 3 (Funcional / Fibras) vs. Tercer Lenguaje (Python 3.12 / Go / Rust)
 

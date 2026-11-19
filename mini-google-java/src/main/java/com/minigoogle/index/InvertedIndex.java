@@ -70,6 +70,8 @@ public class InvertedIndex {
         return documents.size();
     }
 
+    public Set<String> vocabulary() { return Collections.unmodifiableSet(index.keySet()); }
+
     public int getVocabularySize() {
         return index.size();
     }

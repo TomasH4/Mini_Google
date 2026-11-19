@@ -1,0 +1,61 @@
+java
+scala
+go
+índice
+memoria
+latencia
+ranking
+consulta
+funcional
+concurrencia
+árbol
+red
+cache
+virtual
+hilos
+ausentezz
+"memoria ram"
+"hilos virtuales"
+"índice invertido"
+"tabla hash"
+"red local"
+"árbol binario"
+"búsqueda exacta"
+"programación funcional"
+"cola prioridad"
+"ranking bm25"
+"texto completo"
+"frase ausentezz"
+java AND scala
+go OR java
+NOT memoria
+NOT NOT ranking
+scala go
+go AND NOT java
+(java OR go) AND NOT scala
+(índice OR cache) AND (java OR scala)
+NOT (memoria OR latencia)
+("memoria ram" OR "tabla hash") AND NOT go
+((java AND memoria) OR (scala AND latencia))
+java OR NOT go
+(consulta OR ranking) AND NOT ("texto completo" OR go)
+java OR java
+"memoria ram" AND memoria
+NOT (NOT java AND NOT go)
+((árbol AND red) OR (cola AND tabla)) AND NOT cache
+~concurrensia
+~latensia
+~memmoria
+~rankin
+~javva
+~índce
+~funcinal
+~consutla
+mem*
+lat*
+concur*
+progr*
+virt*
+búsq*
+árb*
+sc*

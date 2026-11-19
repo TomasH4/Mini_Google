@@ -132,11 +132,9 @@ public class SearchEngine {
      * Iterates over query terms and their postings directly, accumulating scores into matching docIds.
      */
     private List<SearchResult> rank(Set<Integer> docIds, QueryNode query) {
-        List<String> terms = collectTerms(query);
-        if (terms.isEmpty()) {
-            return Collections.emptyList();
-        }
-
+        List<String> terms = new ArrayList<>();
+        collectTerms(query, terms, true);
+        terms.sort(String::compareTo);
         Map<Integer, Double> scores = new HashMap<>(docIds.size() * 4 / 3 + 1);
         double avgdl = Math.max(1.0, index.getAvgDocLength());
         int N = Math.max(1, index.getDocumentCount());
@@ -164,56 +162,35 @@ public class SearchEngine {
             }
         }
 
-        if (scores.isEmpty()) {
-            return Collections.emptyList();
-        }
-
-        // Min-heap of fixed size topK
-        PriorityQueue<SearchResult> heap = new PriorityQueue<>(Comparator.comparingDouble(SearchResult::score));
-        for (Map.Entry<Integer, Double> e : scores.entrySet()) {
-            Document d = index.getDocument(e.getKey());
-            String title = (d != null) ? d.title() : ("Doc " + e.getKey());
-            SearchResult sr = new SearchResult(e.getKey(), title, e.getValue());
-
-            if (heap.size() < topK) {
-                heap.offer(sr);
-            } else if (e.getValue() > heap.peek().score()) {
-                heap.poll();
-                heap.offer(sr);
+        Comparator<SearchResult> best = Comparator.comparingDouble(SearchResult::score).reversed()
+                .thenComparingInt(SearchResult::docId);
+        PriorityQueue<SearchResult> heap = new PriorityQueue<>(topK, best.reversed());
+        for (int id : docIds) {
+            SearchResult hit = new SearchResult(id, index.getDocument(id).title(), scores.getOrDefault(id, 0.0));
+            if (heap.size() == topK) {
+                if (best.compare(hit, heap.peek()) >= 0) continue;
+                heap.remove();
             }
+            heap.add(hit);
         }
-
         List<SearchResult> result = new ArrayList<>(heap);
-        result.sort(Comparator.comparingDouble(SearchResult::score).reversed());
+        result.sort(best);
         return result;
     }
 
-    /** Collect all unique query terms from the AST */
-    private List<String> collectTerms(QueryNode node) {
-        Set<String> uniqueTerms = new LinkedHashSet<>();
-        collectTermsRecursive(node, uniqueTerms);
-        return new ArrayList<>(uniqueTerms);
-    }
-
-    private void collectTermsRecursive(QueryNode node, Set<String> acc) {
+    private void collectTerms(QueryNode node, List<String> terms, boolean positive) {
         switch (node) {
-            case TermNode tn -> {
-                if (!tn.word().isBlank()) acc.add(tn.word().toLowerCase());
+            case TermNode n -> { if (positive) terms.add(n.word()); }
+            case PhraseNode n -> { if (positive) terms.addAll(n.words()); }
+            case AndNode n -> {
+                collectTerms(n.left(), terms, positive);
+                collectTerms(n.right(), terms, positive);
             }
-            case PhraseNode pn -> {
-                for (String w : pn.words()) {
-                    if (!w.isBlank()) acc.add(w.toLowerCase());
-                }
+            case OrNode n -> {
+                collectTerms(n.left(), terms, positive);
+                collectTerms(n.right(), terms, positive);
             }
-            case AndNode an -> {
-                collectTermsRecursive(an.left(), acc);
-                collectTermsRecursive(an.right(), acc);
-            }
-            case OrNode on -> {
-                collectTermsRecursive(on.left(), acc);
-                collectTermsRecursive(on.right(), acc);
-            }
-            case NotNode nn -> collectTermsRecursive(nn.child(), acc);
+            case NotNode n -> collectTerms(n.child(), terms, !positive);
         }
     }
 }
