@@ -24,3 +24,8 @@ buildNumber.properties
 *.log
 .DS_Store
 Thumbs.db
+
+
+# Datasets generados por generate_dataset.py
+*.tsv
+queries*.txt

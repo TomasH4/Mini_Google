@@ -58,6 +58,10 @@ public class InvertedIndex {
         return documents.values();
     }
 
+    public Set<Integer> allDocIds() {
+        return documents.keySet();
+    }
+
     public double getAvgDocLength() {
         return avgDocLength;
     }

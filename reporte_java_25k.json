@@ -1,0 +1,16 @@
+{
+  "language": "Java 21",
+  "totalDocuments": 25000,
+  "indexTimeMs": 5529,
+  "memoryUsedMb": 178.10,
+  "totalQueries": 10000,
+  "sequentialTimeMs": 28400,
+  "sequentialThroughputQps": 352.10,
+  "meanLatencyMs": 2.8381,
+  "p50LatencyMs": 1.8684,
+  "p95LatencyMs": 8.8569,
+  "p99LatencyMs": 13.9543,
+  "concurrentTimeMs": 13464,
+  "concurrentThroughputQps": 742.68,
+  "virtualThreadsCount": 10000
+}
