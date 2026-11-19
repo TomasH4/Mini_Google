@@ -24,18 +24,18 @@ public class Main {
     public static void main(String[] args) throws Exception {
         // 1. Check if user wants to run the automated benchmark
         if (args.length > 0 && args[0].equalsIgnoreCase("--benchmark")) {
-            Path corpusPath = args.length > 1 ? Path.of(args[1]) : Path.of("corpus.tsv");
-            Path queriesPath = args.length > 2 ? Path.of(args[2]) : Path.of("queries.txt");
+            Path corpusPath = args.length > 1 ? Path.of(args[1]) : Path.of("corpus_25k.tsv");
+            Path queriesPath = args.length > 2 ? Path.of(args[2]) : Path.of("queries_25k.txt");
             Path outputPath = args.length > 3 ? Path.of(args[3]) : Path.of("benchmark_results_java.json");
 
             if (!Files.exists(corpusPath)) {
                 System.err.printf("Error: No se encontró el archivo de corpus en '%s'.\n", corpusPath.toAbsolutePath());
-                System.err.println("Ejecuta primero: python generate_dataset.py");
+                System.err.println("Ejecuta primero: python generate_dataset.py --scenario all");
                 System.exit(1);
             }
             if (!Files.exists(queriesPath)) {
                 System.err.printf("Error: No se encontró el archivo de consultas en '%s'.\n", queriesPath.toAbsolutePath());
-                System.err.println("Ejecuta primero: python generate_dataset.py");
+                System.err.println("Ejecuta primero: python generate_dataset.py --scenario all");
                 System.exit(1);
             }
 
@@ -46,22 +46,39 @@ public class Main {
         // 2. Interactive Console Mode
         InvertedIndex index = new InvertedIndex();
 
-        // If a TSV is passed or exists in local folder, load it; otherwise fallback to classpath resources
-        Path localTsv = args.length > 1 && args[0].equalsIgnoreCase("--tsv") ? Path.of(args[1]) : Path.of("corpus.tsv");
-        if (Files.exists(localTsv)) {
-            System.out.printf("Cargando corpus masivo desde '%s'...\n", localTsv);
-            int count = TsvLoader.processStream(localTsv, index::addDocument);
+        // Check if a specific TSV was requested via --tsv <file>
+        String tsvPathStr = null;
+        for (int i = 0; i < args.length; i++) {
+            if (args[i].equalsIgnoreCase("--tsv") && i + 1 < args.length) {
+                tsvPathStr = args[i + 1];
+            }
+        }
+
+        if (tsvPathStr != null) {
+            Path tsvPath = Path.of(tsvPathStr);
+            if (!Files.exists(tsvPath)) {
+                System.err.printf("Error: No se encontró el archivo TSV en '%s'.\n", tsvPath.toAbsolutePath());
+                System.exit(1);
+            }
+            System.out.printf("Cargando corpus desde '%s'...\n", tsvPath);
+            int count = TsvLoader.processStream(tsvPath, index::addDocument);
             System.out.printf("Cargados %d documentos en el índice invertido.\n", count);
         } else {
+            // By default, load the original project sample documents (TXT, MD, PDF, DOCX)
+            System.out.println("Cargando documentos de ejemplo del proyecto (resources/documents)...");
             loadClasspathDocuments(index);
         }
 
         SearchEngine engine = new SearchEngine(index);
 
         System.out.println("=================================================================");
-        System.out.println(" Mini-Google (Java 21) listo. Escribe tu consulta booleana o frase.");
-        System.out.println(" Ejemplos:  java OR scala  |  (backend OR hilos) AND NOT lento  |  \"rapido y seguro\"");
-        System.out.println(" Presiona ENTER sin texto para salir.");
+        System.out.println(" Mini-Google (Java 21) listo.");
+        System.out.println(" Escribe una consulta y presiona ENTER.");
+        System.out.println(" Ejemplos:");
+        System.out.println("   - Palabras simples:      java OR scala");
+        System.out.println("   - Operador AND y NOT:    (backend OR hilos) AND NOT lento");
+        System.out.println("   - Frases exactas:        \"rapido y seguro\" o \"hilos virtuales\"");
+        System.out.println(" Presiona ENTER en una línea vacía para salir.");
         System.out.println("=================================================================");
 
         try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
